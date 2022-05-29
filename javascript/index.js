@@ -138,11 +138,22 @@ function obtainInstructionBrussels(step) {
   });
 }
 
-Promise.all([obtainInstructionBrussels(0),obtainInstructionBrussels(1),obtainInstructionBrussels(2),obtainInstructionBrussels(3),obtainInstructionBrussels(4),obtainInstructionBrussels(6), obtainInstructionBrussels(7)])
-.then((values) => {console.log(values)})
-.then(
-  () =>
-    (document.querySelector(
-      "#brusselsSprouts"
-    ).innerHTML += `<li>"Brussels sprouts are ready!"</li>`)
-)
+Promise.all([
+  obtainInstructionBrussels(0),
+  obtainInstructionBrussels(1),
+  obtainInstructionBrussels(2),
+  obtainInstructionBrussels(3),
+  obtainInstructionBrussels(4),
+  obtainInstructionBrussels(6),
+  obtainInstructionBrussels(7),
+])
+  .then((values) => {
+    console.log(values);
+  })
+  .then(
+    () =>
+      (document.querySelector(
+        "#brusselsSprouts"
+      ).innerHTML += `<li>"Brussels sprouts are ready!"</li>`)
+  )
+  .catch(() => console.log(err));
